@@ -1,0 +1,46 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  height: fit-content;
+  text-align: start;
+  background-color: rgb(31, 30, 30);
+  border-radius: 10px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+.item__image {
+  width: 100%;
+  height: 400px;
+  padding: 0;
+  margin: 0;
+}
+.item__title {
+  width: fit-content;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 33px;
+  margin: 20px 10px 30px 10px;
+  border-bottom: 1px solid blue;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+}
+.item__description {
+  width: 75%;
+  margin: 0 auto 50px auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 22px;
+  font-weight: normal;
+  height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+}

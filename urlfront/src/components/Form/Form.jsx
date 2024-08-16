@@ -42,7 +42,9 @@ const Form = ({ handleSearch }) => {
 
   return (
     <div className="form">
-      <h1 className="form__title">URL SEARCHER</h1>
+      <h1 className="form__title animate__animated animate__fadeInUp">
+        URL SEARCHER
+      </h1>
       <form className="form__continer" onSubmit={handleSubmit}>
         <label className="form__continer-label" htmlFor="url">
           Please enter at least 3 URLs, separated by commas, spaces, or new

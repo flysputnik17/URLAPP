@@ -5,6 +5,7 @@ import { useState } from "react";
 //Raect components imports
 import Form from "../Form/Form";
 import Result from "../Result/Result";
+import Footer from "../Footer/Footer";
 
 const App = () => {
   const [seacrhClicked, setSeacrhClicked] = useState(false);
@@ -18,6 +19,7 @@ const App = () => {
     <div className="page">
       <Form handleSearch={handleSearch} />
       {seacrhClicked ? <Result /> : <></>}
+      <Footer />
     </div>
   );
 };

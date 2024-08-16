@@ -1,11 +1,16 @@
 import "./Result.css";
+import Item from "../Item/Item";
 
 const Result = () => {
   return (
     <div className="result">
-      <ul className="result__list">
-        <li>test</li>
-      </ul>
+      <div className="result__list">
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+      </div>
     </div>
   );
 };
