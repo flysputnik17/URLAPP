@@ -1,6 +1,6 @@
 import "./Form.css";
 import "animate.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Form = ({ handleSearch }) => {
   const [inputValue, setInputValue] = useState("");
@@ -8,6 +8,7 @@ const Form = ({ handleSearch }) => {
   const [buttonText, setButtonText] = useState("Disabled");
   const [buttonStyle, setButtonStyle] = useState("form-button-disabled");
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [dataArray, setDataArray] = useState([]);
 
   const validateUrls = (urls) => {
     //urlArray barking the string the user entered into individual url's and then checking if there is at least 3 url's
@@ -23,6 +24,7 @@ const Form = ({ handleSearch }) => {
       setButtonDisabled(true);
     } else {
       setErrorMessage("");
+      setDataArray(urlArray);
       setButtonText("FIND");
       setButtonStyle("form-button-active");
       setButtonDisabled(false);
@@ -37,9 +39,12 @@ const Form = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(validateUrls);
+    handleSearch(dataArray);
   };
 
+  useEffect(() => {
+    console.log("dataArray:", dataArray);
+  }, [dataArray]);
   return (
     <div className="form">
       <h1 className="form__title animate__animated animate__fadeInUp">

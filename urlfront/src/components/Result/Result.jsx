@@ -1,15 +1,13 @@
 import "./Result.css";
 import Item from "../Item/Item";
 
-const Result = () => {
+const Result = ({ data }) => {
   return (
     <div className="result">
       <div className="result__list">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {data.map((item) => {
+          return <Item key={item._id} item={item} />;
+        })}
       </div>
     </div>
   );
