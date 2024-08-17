@@ -1,5 +1,5 @@
 const {
-  NODE_ENV = "development",
+  NODE_ENV = "production",
   DB_CONNECTION_STRING = "mongodb://127.0.0.1:27017/urlSearcher",
   PORT = 3001,
   APIkey,
