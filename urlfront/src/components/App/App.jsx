@@ -14,6 +14,7 @@ const App = () => {
   const [data, setData] = useState([]);
 
   const handleSearch = (urls) => {
+    setData([]);
     // Use Promise.all to handle multiple API calls concurrently
     Promise.all(urls.map((url) => getSearchResults(url)))
       .then((results) => {

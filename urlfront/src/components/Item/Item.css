@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 75%;
-  height: fit-content;
+  height: 750px;
   text-align: start;
   background-color: rgb(31, 30, 30);
   border-radius: 10px;
@@ -43,4 +43,25 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   line-height: 1.5;
+}
+.item__url {
+  text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+  width: 75%;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 auto 20px auto;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.item__url:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
 }
