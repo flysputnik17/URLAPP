@@ -15,11 +15,15 @@ const App = () => {
 
   const handleSearch = (urls) => {
     setData([]);
-    // Use Promise.all to handle multiple API calls concurrently
-    Promise.all(urls.map((url) => getSearchResults(url)))
+    if (urls.length < 3) {
+      console.error("Please provide at least 3 URLs.");
+      return;
+    }
+
+    getSearchResults(urls)
       .then((results) => {
-        setData(results); // Set all results at once
-        setSearchClicked(true); // Update state after all requests are complete
+        setData(results);
+        setSearchClicked(true);
       })
       .catch((err) => {
         console.error("Error in getSearchResults:", err);

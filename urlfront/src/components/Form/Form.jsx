@@ -11,12 +11,10 @@ const Form = ({ handleSearch }) => {
   const [dataArray, setDataArray] = useState([]);
 
   const validateUrls = (urls) => {
-    //urlArray barking the string the user entered into individual url's and then checking if there is at least 3 url's
     const urlArray = urls.split(/[ ,\n]+/).filter((url) => url.length > 0);
-    //urlPattern checking if the string the user entered is a url or not
+
     const urlPattern = /^(https?:\/\/[^\s$.?#].[^\s]*)$/i;
 
-    // Check if at least 3 valid URLs are present
     const validUrls = urlArray.filter((url) => urlPattern.test(url));
 
     if (validUrls.length < 3) {
@@ -39,6 +37,8 @@ const Form = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Submitting URLs:", dataArray);
+
     handleSearch(dataArray);
   };
 

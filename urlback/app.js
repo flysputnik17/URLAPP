@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import router from "./router/index.js";
@@ -19,7 +21,8 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
-app.use("/", router);
+app.use("/fetch-metadata", router);
+
 app.use(errorLogger);
 
 app.listen(PORT, () => {
