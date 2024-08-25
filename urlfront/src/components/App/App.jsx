@@ -1,4 +1,3 @@
-// style import
 import "./App.css";
 
 import { useState } from "react";
@@ -14,16 +13,11 @@ const App = () => {
   const [data, setData] = useState([]);
 
   const handleSearch = (urls) => {
-    setData([]);
-    if (urls.length < 3) {
-      console.error("Please provide at least 3 URLs.");
-      return;
-    }
-
-    getSearchResults(urls)
+    // Use Promise.all to handle multiple API calls concurrently
+    Promise.all(urls.map((url) => getSearchResults(url)))
       .then((results) => {
-        setData(results);
-        setSearchClicked(true);
+        setData(results); // Set all results at once
+        setSearchClicked(true); // Update state after all requests are complete
       })
       .catch((err) => {
         console.error("Error in getSearchResults:", err);

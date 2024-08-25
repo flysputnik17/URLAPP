@@ -1,16 +1,18 @@
-import { baseUrl } from "./constants";
-export const getSearchResults = async (urls) => {
-  const response = await fetch(`${baseUrl}/fetch-metadata`, {
-    method: "POST",
+import { APIkey } from "./constants";
+
+export const getSearchResults = (data) => {
+  const checkResponse = (res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  };
+
+  return fetch(`https://api.linkpreview.net/?q=${encodeURIComponent(data)}`, {
     headers: {
+      "X-Linkpreview-Api-Key": APIkey,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ urls }), // Sending an array of URLs
-  });
-
-  if (response.ok) {
-    return response.json();
-  } else {
-    throw new Error("Error fetching metadata from backend");
-  }
+  }).then(checkResponse);
 };
